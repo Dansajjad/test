@@ -11,7 +11,8 @@ This will also serve as a document to store and shortcuts that I need to remembe
 
 
 ##Misc comments
-* to open gedit from termial: gedit . fileName
+* to open gedit from termial: **gedit . fileName**
+* exit git log file by typing: **q**
 
 
 ##Setting up a new git folder & linking with github
@@ -38,9 +39,9 @@ This will also serve as a document to store and shortcuts that I need to remembe
 * ibm@ibm:~/Documents/test$ git status
 * ibm@ibm:~/Documents/test$ git push -u origin master
 * Username for 'https://github.com': enter Username
-** Password for 'https://dansajjad@github.com': 
-** Branch master set up to track remote branch master from origin.
+> Password for 'https://dansajjad@github.com': 
+> Branch master set up to track remote branch master from origin.
 * ibm@ibm:~/Documents/test$ git status
-** On branch master
-** Your branch is up-to-date with 'origin/master'.
+> On branch master
+> Your branch is up-to-date with 'origin/master'.
 
