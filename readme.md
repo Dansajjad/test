@@ -16,10 +16,6 @@ This will also serve as a document to store and shortcuts that I need to remembe
 
 
 ##Setting up a new git folder & linking with github
-
-
- push an existing repository from the command line
-
 ###Create a new repo on the command line
 * echo "# test" >> README.md
 * git init
@@ -44,4 +40,5 @@ This will also serve as a document to store and shortcuts that I need to remembe
 * ibm@ibm:~/Documents/test$ git status
 > On branch master
 > Your branch is up-to-date with 'origin/master'.
-
+###Markdown quick reference
+* http://www.darkcoding.net/software/markdown-quick-reference/
