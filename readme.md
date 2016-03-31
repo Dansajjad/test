@@ -96,6 +96,7 @@ Use Git commands to help keep track of changes made to a project:
 * **git status**: inspects the contents of the working directory and staging area
 * **git add**: adds files from the working directory to the staging area
 * **git diff**: shows the difference between the working directory and the staging area
+* **git diff branch1 branch2**: shows the difference between 2 files in 2 branches
 * **git commit**: permanently stores file changes from the staging area in the repository
 * **git commit -a -m "commit message"**: shortcut to add & commit
 * **git log**: shows a list of all previous commits
@@ -103,9 +104,11 @@ Use Git commands to help keep track of changes made to a project:
 ###Backtrack
 You've learned three different ways to backtrack in Git. You can use these skills to undo changes made to your Git project.
 Let's take a moment to review the new commands:
+* **git show HEAD**: The commit you are currently on is known as the HEAD commit. In many cases, the most recently made commit is the HEAD commit. The output of this command will display everything the git log command displays for the HEAD commit, plus all the file changes that were committed.
 * **git checkout HEAD filename**: Discards changes in the working directory.
 * **git reset HEAD filename**: Unstages file changes in the staging area.
 * **git reset SHA**: Can be used to reset to a previous commit in your commit history.
+* **git reset --hard**: discard uncommitted changes.
 * **git add filename_1 filename_2**: a way to add multiple files to the staging area with a single command
 
 ###Git branching
@@ -117,6 +120,7 @@ The following commands are useful in the Git branch workflow.
 * **git checkout -b branch_name**: shortcut to create new branch and switch to new branch
 * **git merge branch_name**: Used to join file changes from one branch to another.
 * **git branch -d branch_name**: Deletes the branch specified.
+* **git branch branch_name <SHA>**: Makes branch at a specific commit point using the commit's SHA.
 ###Git teamwork
 In order to collaborate, you and randy need:
 * A complete replica of the project on your own computers
@@ -149,6 +153,7 @@ Steps
 * Fork the project
 * Clone your fork
 * Add a remote pointing to the original (upstream) repository. **git remote add upstream https://github.com/<USER_NAME>/<REPOSITORY_NAME>.git**
+* **git pull upstream master**.
 
 The revision cycle:
 * **git status** to see that you're starting from a clean state.
@@ -187,3 +192,73 @@ To add this for the twittler repo we cloned above, you would run git remote add 
 
 A properly formed git commit subject line should always be able to complete the following sentence:
 If applied, this commit will "your subject line here"
+
+
+###Notes on jQuery (codeschool)
+* $(document).ready(function);  || $(function());
+* $("h1").text(); //returns text
+* $("h1").text("Hello"); //updates text
+* $("li");  //selects all li's
+* .find(); //like children selects descendants of an element but can travel multiple levels
+* $("#vacations").find(".america"); //select all vacations from America using || $("#vacations .america")
+* $( "li.item-ii" ).find( "li" ).css( "background-color", "red" ); //sets red background on matches
+* always put jQuery script above other scripts (at the end of the body)
+####Descendant Selector
+* $("#destinations li"); //selects all li's in destinations
+####Child Selector ( > )
+* $("#destinations > li"); //selects only the "direct" children
+####Selecting multiple elements ( , )
+* $(".promo, #france"); //select .promo & #france ??
+####CSS like pseudo classes
+* $("#destinations li:first"); //selects first child li
+* $("#destinations li:last");
+* $("#destinations li:odd"); //selects all odd numbered (index starts at 0)
+* $("#destinations li:even");
+####Traversing
+* syntax: selector . traversal
+* Slightly more code but faster than pseudo selectors
+* $("li:first") vs. $("li").first()
+* $("li:last") vs. $("li").last()
+#####Walking the DOM: Method Chaining
+* $("li").first().next();
+* $("li").first().next().prev();
+* $("#vacations li").first(); //selects first li in #vacations
+#####Walking up the DOM: Traversing Up
+* $("li").first().parent(); //selects parent by going to 1st li & getting its parent
+#####Waling down the DOM: Traversing down
+* How to select 1st generation children, when a parent has many children and those children have children?
+* $("#dest").children("li"); //unlike find() will select only direct children
+####Manipulating the DOM
+#####Appending to the DOM
+$(function() {
+    //create a <p> node with the price
+	var price = "From $399";
+	//var price = "<p>From $399</p>" this wouldn't be right
+	var price = $('<p>From $399</p>'); //price node created but note in DOM yet
+	//next we select a node in our DOM that will serve as a reference point
+	//$(".vacation").before(price); //seperate node before the li
+	//$(".vacation").after(price);	//seperate node after the li
+	//$(".vacation").prepend(price); //1st child node for the li
+	$(".vacation").append(price); //adds price as last child of our li
+	//Now to remove the DOM element (button)
+	$("button").remove();
+});
+* .append()
+* .prepend()
+* .after
+* .before()
+
+
+
+_.memoize = function(func) {
+  var cache = {}; //create empty object to store args as keys and their respective results after func is applied
+  return function() { //return function that has closed over the cache object
+    var key = JSON.stringify(arguments); //turn the arguments into a string
+    if(cache[key]) {
+      return cache[key];
+    } //if key is in cache return its result thus not calling the function
+    else {
+      return cache[key] = func.apply(this, arguments);
+    } //store key/value in cache and also return result of applying the function
+  };
+};
