@@ -262,3 +262,52 @@ _.memoize = function(func) {
     } //store key/value in cache and also return result of applying the function
   };
 };
+
+
+### Node.js & Express
+####Creating a portfolio website
+* create a blank project in cloud9
+* create file "server.js"
+* add into the file: **var express = require('express');**
+* now we will use npm to add express, before that:  
+* **npm init** - initialize a project (tell node that this is a node project)
+* next you'll answer some questions about the project
+** name: portfolio (doesn't matter what you put)
+** description: my portfolio
+** entry point: (server.js) server.js
+** test : node server.js
+** git repo: don't have one yet, so leave empty
+** keywords: empty
+** author: your name
+** enter enter
+* a file package.json has now been created
+* now we'll tell node that we want to use express on this project: * **npm install express --save**
+*2 things happens:
+**in package.json "dependencies" will update to show express
+**a folder node_modules is created with an express folder
+* now we will create our app by using express;
+* add to server.js: **var app = express();**
+* tell express which directory my html pages are in:
+* **app.use(express.static(__dirname + '/public'));**
+* finally tell express to start server:
+* **app.listen(process.env.PORT || 5678)**: either the heroku or ec2 or cloud9 provided port or your own
+* create: **public folder**
+* inside public create static file: **index.html** with some html
+* **node server.js** : run server
+* click "Preview" button to see your webpage
+* inside public create static file: **style.css**,add link in html
+* inside public create static file: **app.js**,add link in html
+####Deploying to heroku
+* heroku is already installed in cloud9
+* initialize git onto this project: **git init**
+* add everything in the director: **git add .**
+* commit: **git commit -m "Initial commit"**
+* now tell heroku to create an application:  **heroku create**
+* enter your heroku credentials:
+* email: andrewlee.dev@gmail.com
+* Password:
+* if heroku create doesn't work use:
+* heroku create my-portfolio-andrew
+* git push heroku master
+* now you'll see a link of your deployed website
+* copy and paste that in browser to view
