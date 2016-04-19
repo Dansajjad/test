@@ -149,8 +149,8 @@ We also learned the following commands:
 * **git push -u origin branch_name**: shortcut -For every branch that is up to date or successfully pushed, add upstream (tracking) reference
 
 ###Git Workflow for Pairs
-* both pairs fork
-* at the pair station magee clones her fork
+* 1 - fork - both pairs fork
+* 2 - clone - at the pair station magee clones her fork
 * both work together on this repo & commit changes
 * ocassionally push to their github. push everytime one gets up from the station
 * the pair pushes using git push origin master
@@ -158,8 +158,8 @@ We also learned the following commands:
 * in git you can set up a remote which points to another copy of your repo stored on some other pc. 
 * When magee cloned down her repo it came with a remote called origin
 * we can see our existing remotes and create new ones using **git remote** & can be given names to make them descriptive
-* we'll create a remote called "beth", which points to Beth's fork: git remote add beth https://github.com/beth/2014-..
-* now our pair can push to Beth's fork using **git push beth master**
+* 3 - add - other pair's fork as a remote we'll create a remote called "beth", which points to Beth's fork: **git remote add beth https://github.com/beth/2014-...**
+* 4 - push - (git push pair master) now our pair can push to Beth's fork using **git push beth master**
 
 
 ###Standard Git Workflow
