@@ -148,6 +148,20 @@ We also learned the following commands:
 * **git push origin branch_name**: Pushes a local branch to the origin remote. Sally can now review your new work and can merge it into the remote's master branch.
 * **git push -u origin branch_name**: shortcut -For every branch that is up to date or successfully pushed, add upstream (tracking) reference
 
+###Git Workflow for Pairs
+* both pairs fork
+* at the pair station magee clones her fork
+* both work together on this repo & commit changes
+* ocassionally push to their github. push everytime one gets up from the station
+* the pair pushes using git push origin master
+* how do you push the work to the Beth's fork of the repo? we'll need to set up another remote 
+* in git you can set up a remote which points to another copy of your repo stored on some other pc. 
+* When magee cloned down her repo it came with a remote called origin
+* we can see our existing remotes and create new ones using **git remote** & can be given names to make them descriptive
+* we'll create a remote called "beth", which points to Beth's fork: git remote add beth https://github.com/beth/2014-..
+* now our pair can push to Beth's fork using **git push beth master**
+
+
 ###Standard Git Workflow
 Steps
 * Fork the project
